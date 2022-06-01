@@ -149,3 +149,10 @@ h1.title {
 .spot-text h2 {
     text-align: center;
 }
+
+.chaser{
+    width: 50px;
+    height: 50px;
+    background: red;
+    border-radius: 50%;
+}
