@@ -17,7 +17,7 @@ H1Tag[5].innerHTML = "My favourite celebrity";
 H2Tag[4].innerHTML = "Danny 'Big Daddy' Devito takes his well-earned spot as my favourite celebrity. He won over my heart with his amazing performance in It's Always Sunny in Philadelphia, and by being an amazing human being."
 H1Tag[6].innerHTML = "Besart Elezi";
 pTag[0].innerHTML = "Bolbi";
-pTag[1].innerHTML = "Strogganofski";
+pTag[1].innerHTML = "Stroganovsky";
 pTag[2].innerHTML = "Superfan";
 
 //Changing my favourite colours
@@ -45,6 +45,7 @@ for (i=1; i < H1Tag.length; i++){
     AllH1TagsCSS.marginBottom = "20px";
     AllH1TagsCSS.padding = "15px";
 }
+
 for (i=0; i < H2Tag.length; i++){
     const AllH2TagsCSS = H2Tag[i].style;
     AllH2TagsCSS.color = "black";
@@ -55,9 +56,10 @@ for (i=0; i < H2Tag.length; i++){
     AllH2TagsCSS.marginTop = "10px";
     AllH2TagsCSS.marginBottom ="25px";
 }
+
 for (i=0; i < image.length; i++){
     const AllImagesCSS = image[i].style;
-    AllImagesCSS.width = "60%";
+    AllImagesCSS.width = "80%";
     AllImagesCSS.marginLeft = "auto";
     AllImagesCSS.marginRight = "auto";
     AllImagesCSS.display= "block"
@@ -70,7 +72,29 @@ for (i=0; i < pTag.length; i++){
     AllPTagCSS.marginTop = "10px";
     AllPTagCSS.marginBottom = "10px";
 }
+
 pTag[2].style.marginBottom = "25px";
+document.body.style.padding="25px";
+
+//The Challenge
+let chaser = document.getElementsByClassName("chaser")[0];
+chaser.style.position = "absolute";
+const Box = document.getElementsByClassName("col-12 box")[0];
+Box.style.padding = "0";
+
+const onMouseMove = (e) =>{
+    let mouseX = e.pageX - 22;
+    let mouseY = e.pageY - 22;
+    if (mouseX > 12 && mouseX <1626){
+    chaser.style.left = mouseX + 'px';}
+    if (mouseY > 6751 && mouseY <7051){
+        chaser.style.top = mouseY + 'px';}
+    console.log(e.pageX)
+    console.log(e.pageY)
+
+}
+Box.addEventListener('mousemove', onMouseMove);
+
 
 
 
