@@ -35,9 +35,9 @@ image[3].src = "image/dannydevito.jpg"
 //changing CSS
 //Changes all H1 tags, except for the first one, to the styling that I choose
 //This is possible because of the for loop, this loop starts from index 1, so index 0 remains unchanged, and keeps rising by one until it reaches the max length of elements that use the H1 tag.
-for (i=1; i < H1Tag.length; i++){
+for (i = 1; i < H1Tag.length; i++) {
     const AllH1TagsCSS = H1Tag[i].style;
-    AllH1TagsCSS.color = "black";
+    AllH1TagsCSS.color = "white";
     AllH1TagsCSS.fontSize = "35px";
     AllH1TagsCSS.fontFamily = "sans-serif";
     AllH1TagsCSS.fontWeight = "bold";
@@ -46,35 +46,42 @@ for (i=1; i < H1Tag.length; i++){
     AllH1TagsCSS.padding = "15px";
 }
 
-for (i=0; i < H2Tag.length; i++){
+for (i = 0; i < H2Tag.length; i++) {
     const AllH2TagsCSS = H2Tag[i].style;
-    AllH2TagsCSS.color = "black";
+    AllH2TagsCSS.color = "white";
     AllH2TagsCSS.fontSize = "22px";
     AllH2TagsCSS.fontFamily = "sans-serif";
     AllH2TagsCSS.textAlign = "center";
     AllH2TagsCSS.padding = "10px";
     AllH2TagsCSS.marginTop = "10px";
-    AllH2TagsCSS.marginBottom ="25px";
+    AllH2TagsCSS.marginBottom = "25px";
 }
 
-for (i=0; i < image.length; i++){
+for (i = 0; i < image.length; i++) {
     const AllImagesCSS = image[i].style;
     AllImagesCSS.width = "80%";
     AllImagesCSS.marginLeft = "auto";
     AllImagesCSS.marginRight = "auto";
-    AllImagesCSS.display= "block"
+    AllImagesCSS.display = "block"
 }
 
-for (i=0; i < pTag.length; i++){
+for (i = 0; i < pTag.length; i++) {
     const AllPTagCSS = pTag[i].style;
     AllPTagCSS.textAlign = "center";
     AllPTagCSS.fontSize = "50px";
     AllPTagCSS.marginTop = "10px";
     AllPTagCSS.marginBottom = "10px";
+    AllPTagCSS.color = "white";
 }
 
+//CSS changes to 3d p tag and body
 pTag[2].style.marginBottom = "25px";
-document.body.style.padding="25px";
+document.body.style.padding = "25px";
+document.body.style.backgroundColor = "black";
+
+//CSS changes The Challenge
+const challengeTitle = document.getElementsByClassName("col-12 title")[0];
+challengeTitle.style.color = "white";
 
 //The Challenge
 let chaser = document.getElementsByClassName("chaser")[0];
@@ -82,13 +89,13 @@ chaser.style.position = "absolute";
 const Box = document.getElementsByClassName("col-12 box")[0];
 Box.style.padding = "0";
 
-const onMouseMove = (e) =>{
+const onMouseMove = (e) => {
     let mouseX = e.pageX - 22;
     let mouseY = e.pageY - 22;
-    if (mouseX > 12 && mouseX <1626){
+    if (mouseX > 12 && mouseX < 1626) {
         chaser.style.left = mouseX + 'px';
     }
-    if (mouseY > 6751 && mouseY <7051){
+    if (mouseY > 6751 && mouseY < 7051) {
         chaser.style.top = mouseY + 'px';
     }
     console.log(e.pageX)
@@ -98,7 +105,7 @@ Box.addEventListener('mousemove', onMouseMove);
 
 //Chaser changes color on click
 chaser.addEventListener("click", random_bg_color)
-function random_bg_color() {
+    function random_bg_color() {
     let x = Math.floor(Math.random() * 256);
     let y = Math.floor(Math.random() * 256);
     let z = Math.floor(Math.random() * 256);
@@ -106,3 +113,7 @@ function random_bg_color() {
 }
 
 
+//Figure out way to undo all changes in JS, probably add a button, on click, changes between true and false
+//if false, turn off function containing all my changes, if true, set all my changes
+
+//Button needs to be outside of fucntion, appended to bottom of body for both websites
