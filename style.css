@@ -20,7 +20,9 @@ body {
     justify-content: center;
 }
 
-
+img {
+    border-radius: 10px;
+}
 
 h1.title {
     display: flex;
@@ -141,13 +143,27 @@ h1.title {
     justify-content: center;
 }
 
+.sport-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .sport-box img {
     width: 604px;
     height: 382px;
 }
 
 .spot-text h2 {
+    top: 60%;
+    left: 50%;
+    font-size: 30px;
+    width: 100%;
+    font-weight: 400;
     text-align: center;
+    margin-top: 30px;
+    font-family: fantasy;
+    margin-left: 100px;
 }
 
 
