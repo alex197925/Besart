@@ -86,15 +86,23 @@ const onMouseMove = (e) =>{
     let mouseX = e.pageX - 22;
     let mouseY = e.pageY - 22;
     if (mouseX > 12 && mouseX <1626){
-    chaser.style.left = mouseX + 'px';}
+        chaser.style.left = mouseX + 'px';
+    }
     if (mouseY > 6751 && mouseY <7051){
-        chaser.style.top = mouseY + 'px';}
+        chaser.style.top = mouseY + 'px';
+    }
     console.log(e.pageX)
     console.log(e.pageY)
-
 }
 Box.addEventListener('mousemove', onMouseMove);
 
-
+//Chaser changes color on click
+chaser.addEventListener("click", random_bg_color)
+function random_bg_color() {
+    let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
+    chaser.style.background = "rgb(" + x + "," + y + "," + z + ")";
+}
 
 
