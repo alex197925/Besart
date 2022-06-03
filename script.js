@@ -90,27 +90,39 @@ const Box = document.getElementsByClassName("col-12 box")[0];
 Box.style.padding = "0";
 
 const onMouseMove = (e) => {
-    let mouseX = e.pageX - 22;
-    let mouseY = e.pageY - 22;
-    if (mouseX > 12 && mouseX < 1626) {
-        chaser.style.left = mouseX + 'px';
+    let mouseX = e.pageX;
+    let mouseY = e.pageY;
+
+    const relativeBox = Box.getBoundingClientRect();
+
+    const maxRight = relativeBox.right - relativeBox.left-10;
+    const maxLeft = 40;
+    const maxBottom = relativeBox.bottom - relativeBox.top;
+    const maxTop = relativeBox.top
+
+    console.log(relativeBox.top)
+    console.log(relativeBox.bottom)
+    console.log(maxBottom)
+
+    //right and left edge of box
+    if (mouseX < maxRight && mouseX > maxLeft){
+        chaser.style.left = mouseX -25 + 'px';
     }
-    if (mouseY > 6751 && mouseY < 7051) {
-        chaser.style.top = mouseY + 'px';
+    //
+    if (mouseY > maxBottom) {
+        chaser.style.top = mouseY + "px";
     }
-    console.log(e.pageX)
-    console.log(e.pageY)
 }
 Box.addEventListener('mousemove', onMouseMove);
-
 //Chaser changes color on click
 chaser.addEventListener("click", random_bg_color)
-    function random_bg_color() {
+function random_bg_color() {
     let x = Math.floor(Math.random() * 256);
     let y = Math.floor(Math.random() * 256);
     let z = Math.floor(Math.random() * 256);
     chaser.style.background = "rgb(" + x + "," + y + "," + z + ")";
 }
+
 
 
 //Figure out way to undo all changes in JS, probably add a button, on click, changes between true and false
