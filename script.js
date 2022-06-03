@@ -75,13 +75,15 @@ for (i = 0; i < pTag.length; i++) {
 }
 
 //CSS changes to 3d p tag and body
-pTag[2].style.marginBottom = "25px";
+pTag[2].style.marginBottom = "50px";
 document.body.style.padding = "25px";
 document.body.style.backgroundColor = "black";
 
 //CSS changes The Challenge
 const challengeTitle = document.getElementsByClassName("col-12 title")[0];
 challengeTitle.style.color = "white";
+challengeTitle.style.textAlign = "center";
+challengeTitle.style.marginTop = "35px";
 
 //The Challenge
 let chaser = document.getElementsByClassName("chaser")[0];
@@ -89,12 +91,15 @@ chaser.style.position = "absolute";
 const Box = document.getElementsByClassName("col-12 box")[0];
 Box.style.padding = "0";
 
+//As long as I don't add elements under the challenge, the page will have 0 problems
 const onMouseMove = (e) => {
     let mouseX = e.pageX;
     let mouseY = e.pageY;
 
+    //One of the coaches told me to look into the getBoundingClientRect, and that was a HUGE help
+    //I used that, combined with quite ingenious way I discovered myself
+    //the X could be done purely with the getBoundingClientRect, but it didn't work for the Y. So for the Y, I used the entire height of the page and the getBounding together
     const relativeBox = Box.getBoundingClientRect();
-
     const maxRight = relativeBox.right - relativeBox.left-10;
     const maxLeft = 35;
     const body = document.body;
@@ -106,7 +111,7 @@ const onMouseMove = (e) => {
     if (mouseX < maxRight && mouseX > maxLeft){
         chaser.style.left = mouseX -25 + 'px';
     }
-    //
+    //top and bottom of box
     if (mouseY > maxTop && mouseY <maxBottom) {
         chaser.style.top = mouseY -25 + "px";
     }
@@ -120,6 +125,26 @@ function random_bg_color() {
     let z = Math.floor(Math.random() * 256);
     chaser.style.background = "rgb(" + x + "," + y + "," + z + ")";
 }
+
+
+//button that leads to my HTML/CSS and Oleksander's  JS page!
+const div = document.createElement("div");
+div.setAttribute("class", "buttonLink");
+const button = document.createElement("a");
+button.innerHTML = "Visit Oleksandr's page!";
+button.href="https://besartelezi.github.io/duo-time/";
+div.appendChild(button);
+
+const lastSection = document.getElementsByClassName("desc container")[0];
+lastSection.appendChild(div)
+
+button.style.background = "white";
+button.style.color = "black";
+button.style.padding = "15px";
+button.style.margin = "25px";
+button.style.textAlign = "center";
+button.style.borderRadius = "25px";
+button.style.textAlign = "center";
 
 
 
