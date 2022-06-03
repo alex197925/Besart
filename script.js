@@ -96,20 +96,18 @@ const onMouseMove = (e) => {
     const relativeBox = Box.getBoundingClientRect();
 
     const maxRight = relativeBox.right - relativeBox.left-10;
-    const maxLeft = 40;
-    const maxBottom = relativeBox.bottom - relativeBox.top;
+    const maxLeft = 35;
+    const maxBottom = relativeBox.bottom - relativeBox.top-10;
     const maxTop = relativeBox.top
-
-    console.log(relativeBox.top)
-    console.log(relativeBox.bottom)
-    console.log(maxBottom)
-
+    const body = document.body;
+    const bodyHeight = Math.max(body.scrollHeight, body.offsetHeight);
+    console.log(bodyHeight)
     //right and left edge of box
     if (mouseX < maxRight && mouseX > maxLeft){
         chaser.style.left = mouseX -25 + 'px';
     }
     //
-    if (mouseY > maxBottom) {
+    if (mouseY > maxBottom && mouseY <bodyHeight -75) {
         chaser.style.top = mouseY + "px";
     }
 }
